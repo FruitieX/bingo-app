@@ -21,7 +21,9 @@ class App extends Component<{}, State> {
     this.setState({ maxNumber: event.target.value });
   };
 
-  start = () => {
+  start = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     const { maxNumber } = this.state;
 
     const parsed = parseInt(maxNumber);
@@ -71,13 +73,15 @@ class App extends Component<{}, State> {
           </div>
         )}
         <h3>Starta nytt spel</h3>
-        <input
-          id="maxNumber"
-          value={maxNumber}
-          onChange={this.changeMaxNumber}
-          placeholder="Antal siffror"
-        />
-        <button onClick={this.start}>Start</button>
+        <form onSubmit={this.start}>
+          <input
+            id="maxNumber"
+            value={maxNumber}
+            onChange={this.changeMaxNumber}
+            placeholder="Antal siffror"
+          />
+          <button>Start</button>
+        </form>
       </div>
     );
   }
