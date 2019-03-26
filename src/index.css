@@ -1,18 +1,33 @@
 body {
   margin: 0;
+  margin-left: 16px;
+  margin-right: 16px;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .number {
   font-size: 50px;
+  padding-bottom: 25px;
+}
+
+.drawNext {
+  height: 50px;
+}
+
+.game {
+  padding-bottom: 50px;
+}
+
+#maxNumber {
+  margin-right: 10px;
 }

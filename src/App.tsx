@@ -47,30 +47,35 @@ class App extends Component<{}, State> {
     const { maxNumber, numbers, curIndex, hasBeenStarted } = this.state;
 
     const current = numbers[curIndex];
+    const drawn =
+      numbers
+        .slice(0, curIndex)
+        .sort((a, b) => a - b)
+        .join(", ") || "-";
 
     return (
       <div className="App">
         {hasBeenStarted && (
-          <div>
+          <div className="game">
             <h3>Lottade siffror:</h3>
-            <div className="oldNumbers">
-              {numbers.slice(0, curIndex).join(", ") || "-"}
-            </div>
+            <div className="oldNumbers">{drawn}</div>
 
             <h3>Senaste siffran: </h3>
             <div className="number">{current || "Spelet slut!"}</div>
 
             <div>
-              <button onClick={this.next}>Lotta nästa siffra!</button>
+              <button onClick={this.next} className="drawNext">
+                Lotta nästa siffra!
+              </button>
             </div>
           </div>
         )}
         <h3>Starta nytt spel</h3>
-        <label htmlFor="maxNumber">Antal siffror:</label>
         <input
           id="maxNumber"
           value={maxNumber}
           onChange={this.changeMaxNumber}
+          placeholder="Antal siffror"
         />
         <button onClick={this.start}>Start</button>
       </div>
